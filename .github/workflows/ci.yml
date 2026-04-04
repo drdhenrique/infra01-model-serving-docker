@@ -70,9 +70,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: build e push
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/ml-model:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/ml-model:${{ github.sha }}
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ml-model:latest \
+                       -t ${{ secrets.DOCKERHUB_USERNAME }}/ml-model:${{ github.sha }} .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/ml-model:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/ml-model:${{ github.sha }}
