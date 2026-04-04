@@ -1,0 +1,5 @@
+models/model.pkl
+data/california-housing.csv
+data/sample_input.csv
+
+*.ipynb
