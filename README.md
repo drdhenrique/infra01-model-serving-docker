@@ -54,3 +54,18 @@ infra01-model-serving-docker/
 - Python, scikit-learn, FastAPI, uvicorn, joblib
 - Docker Desktop
 - Thunder Client / Insomnia / Postman
+
+## Running the tests
+
+To run the tests, run `pip install -r requirements-test.txt`
+So, run `pytest` at the terminal
+
+## CI/CD Pipeline ![CI](https://github.com/drdhenrique/infra01-model-serving-docker/actions/workflows/ci.yml/badge.svg)
+
+Every push triggers an automated pipeline with three jobs:
+
+- **test** — trains the model and runs pytest, including a validation gate (R² ≥ 0.5)
+- **build** — builds the Docker image to validate the Dockerfile
+- **push** — pushes the image to Docker Hub (runs only on main branch)
+
+If any job fails, the subsequent jobs do not run.
