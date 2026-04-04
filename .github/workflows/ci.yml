@@ -18,6 +18,8 @@ jobs:
           python-version: "3.12"
       - name: instalar requirements
         run: pip install -r requirements.txt
+      - name: criar pasta models
+        run: mkdir -p models
       - name: treinar o modelo
         run: python src/train.py
       - name: instalar requirements-test
@@ -36,6 +38,8 @@ jobs:
           python-version: "3.12"
       - name: instalar requirements
         run: pip install -r requirements.txt
+      - name: criar pasta models
+        run: mkdir -p models
       - name: treinar o modelo
         run: python src/train.py
       - name: setup Docker Buildx
@@ -56,6 +60,8 @@ jobs:
           python-version: "3.12"
       - name: instalar requirements
         run: pip install -r requirements.txt
+      - name: criar pasta models
+        run: mkdir -p models
       - name: treinar o modelo
         run: python src/train.py
       - name: login Docker Hub
