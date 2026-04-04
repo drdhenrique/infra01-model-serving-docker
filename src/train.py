@@ -49,4 +49,4 @@ print(f"MAE: {mae:.2f}")
 joblib.dump(pipeline, 'models/model.pkl')
 
 loaded_pipeline = joblib.load('models/model.pkl')
-loaded_pipeline.predict(X_test.iloc[[0]])
+print(loaded_pipeline.predict(X_test.iloc[[0]]))
