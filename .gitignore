@@ -3,3 +3,6 @@ data/california-housing.csv
 data/sample_input.csv
 
 *.ipynb
+
+__pycache__/
+*.pyc
