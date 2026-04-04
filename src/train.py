@@ -8,8 +8,6 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 
-from sklearn.dummy import DummyRegressor
-
 df = pd.read_csv('data/california-housing.csv')
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -38,13 +36,8 @@ preprocessor = ColumnTransformer(
     ]
 )
 
-#pipeline = Pipeline([
-#    ('preprocessor', preprocessor),('model', LinearRegression())])
-
 pipeline = Pipeline([
-    ('preprocessor', preprocessor),
-    ('model', DummyRegressor(strategy="constant", constant=0))
-])
+    ('preprocessor', preprocessor),('model', LinearRegression())])
 
 pipeline.fit(X_train, y_train)
 
